@@ -1,0 +1,24 @@
+{
+  "name": "ld-carousel",
+  "version": "1.0.0",
+  "description": "Module for creating Image Carousels / Slideshows easily.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leandecks/ld-carousel.git"
+  },
+  "keywords": [
+    "carousel",
+    "slideshow",
+    "image-carousel"
+  ],
+  "author": "Leandecks <leandrogridelli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leandecks/ld-carousel/issues"
+  },
+  "homepage": "https://github.com/Leandecks/ld-carousel#readme"
+}
