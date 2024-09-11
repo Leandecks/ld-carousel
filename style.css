@@ -2,6 +2,8 @@
   --prime: #000;
   --second: #2f2e3d;
   --accent: #8d8ab9;
+  --button-hover-color: #fff;
+  --font-size: 20px;
 }
 
 .carousel-wrapper {
@@ -38,7 +40,7 @@
 .left-btn:hover,
 .right-btn:hover {
   background-color: var(--prime);
-  color: white;
+  color: var(--button-hover-color);
 }
 
 .left-btn {

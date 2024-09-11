@@ -1,5 +1,9 @@
-export default function createCarousel(container, wrapper, images = []) {
-  console.log("started");
+export default function createCarousel(
+  container,
+  wrapper,
+  images = [],
+  circleBackgroundColor = "#000"
+) {
   // Images
 
   images.forEach((src, index) => {
@@ -33,7 +37,7 @@ export default function createCarousel(container, wrapper, images = []) {
     const circle = document.createElement("div");
     circle.classList.add("circle");
     if (i === 0) {
-      circle.style.backgroundColor = "#000";
+      circle.style.backgroundColor = circleBackgroundColor;
     }
     circleContainer.appendChild(circle);
   }
@@ -45,7 +49,7 @@ export default function createCarousel(container, wrapper, images = []) {
   let currentImage = 0;
   const imageElements = document.querySelectorAll(".img");
 
-  leftButton.addEventListener("click", () => {
+  function moveLeft() {
     if (currentImage === 0) {
       currentImage = imageElements.length;
     }
@@ -71,9 +75,9 @@ export default function createCarousel(container, wrapper, images = []) {
         circleContainer.children[i].style.backgroundColor = "#000";
       }
     }
-  });
+  }
 
-  rightButton.addEventListener("click", () => {
+  function moveRight() {
     if (currentImage === imageElements.length - 1) {
       currentImage = -1;
     }
@@ -99,5 +103,41 @@ export default function createCarousel(container, wrapper, images = []) {
         circleContainer.children[i].style.backgroundColor = "#000";
       }
     }
+
+    setTimeout(moveRight, 5000);
+  }
+
+  leftButton.addEventListener("click", () => {
+    moveLeft();
+  });
+
+  rightButton.addEventListener("click", () => {
+    moveRight();
+  });
+
+  // Timeout
+
+  setTimeout(moveRight, 5000);
+
+  // Circle EventListeners
+
+  const circleElements = [...circleContainer.children];
+
+  circleElements.forEach((circleElement) => {
+    circleElement.addEventListener("click", () => {
+      [...imageElements].forEach((img) => {
+        img.style.display = "none";
+      });
+
+      circleElements.forEach((el) => {
+        el.style.backgroundColor = "transparent";
+      });
+
+      currentImage = circleElements.indexOf(circleElement);
+      [...imageElements][currentImage].style.display = "block";
+
+      circleElements[currentImage].style.backgroundColor =
+        circleBackgroundColor;
+    });
   });
 }
