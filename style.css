@@ -3,7 +3,6 @@
   --second: #2f2e3d;
   --accent: #8d8ab9;
   --button-hover-color: #fff;
-  --font-size: 20px;
 }
 
 .carousel-wrapper {
@@ -32,6 +31,7 @@
   position: absolute;
   top: 50%;
   font-size: 2rem;
+  color: var(--prime);
   background-color: var(--accent);
   border: none;
   padding: 1rem;
